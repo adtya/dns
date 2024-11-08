@@ -3,6 +3,7 @@ var DNS_PROVIDER_PRIMARY = NewDnsProvider("hetzner");
 var DNS_PROVIDER_SECONDARY = NewDnsProvider("digitalocean");
 
 D("adtya.xyz", DOMAIN_REGISTRAR, DnsProvider(DNS_PROVIDER_PRIMARY), DnsProvider(DNS_PROVIDER_SECONDARY, 0),
+    NAMESERVER_TTL("1d"),
     DefaultTTL("900s"),
     A("@", "165.232.180.97"),
     CNAME("if3", "if3.fly.dev."),
@@ -13,6 +14,7 @@ D("adtya.xyz", DOMAIN_REGISTRAR, DnsProvider(DNS_PROVIDER_PRIMARY), DnsProvider(
     END);
 
 D("acomputer.lol", DOMAIN_REGISTRAR, DnsProvider(DNS_PROVIDER_PRIMARY), DnsProvider(DNS_PROVIDER_SECONDARY, 0),
+    NAMESERVER_TTL("1d"),
     DefaultTTL("900s"),
     A("@", "165.232.180.97"),
     CNAME("forge", "acomputer.lol."),
@@ -23,6 +25,7 @@ D("acomputer.lol", DOMAIN_REGISTRAR, DnsProvider(DNS_PROVIDER_PRIMARY), DnsProvi
     END);
 
 D("ironyofprivacy.org", DOMAIN_REGISTRAR, DnsProvider(DNS_PROVIDER_PRIMARY), DnsProvider(DNS_PROVIDER_SECONDARY, 0),
+    NAMESERVER_TTL("1d"),
     DefaultTTL("900s"),
     END);
 
