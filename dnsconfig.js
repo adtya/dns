@@ -1,10 +1,7 @@
-// @ts-check
-/// <reference path="types-dnscontrol.d.ts" />
+var DOMAIN_REGISTRAR = NewRegistrar("dynadot");
+var DNS_PROVIDER = DnsProvider(NewDnsProvider("hetzner"));
 
-var REG_DYNADOT = NewRegistrar("dynadot");
-var DNSP_HETZNER = NewDnsProvider("hetzner");
-
-D("adtya.xyz", REG_DYNADOT, DnsProvider(DNSP_HETZNER),
+D("adtya.xyz", DOMAIN_REGISTRAR, DNS_PROVIDER,
     DefaultTTL("900s"),
     A("@", "165.232.180.97"),
     CNAME("if3", "if3.fly.dev."),
@@ -14,7 +11,7 @@ D("adtya.xyz", REG_DYNADOT, DnsProvider(DNSP_HETZNER),
     TXT("_github-pages-challenge-adtya", "c83b7cfc33c02c0499d401da51b801"),
     END);
 
-D("acomputer.lol", REG_DYNADOT, DnsProvider(DNSP_HETZNER),
+D("acomputer.lol", DOMAIN_REGISTRAR, DNS_PROVIDER,
     DefaultTTL("900s"),
     A("@", "165.232.180.97"),
     CNAME("forge", "acomputer.lol."),
@@ -24,7 +21,7 @@ D("acomputer.lol", REG_DYNADOT, DnsProvider(DNSP_HETZNER),
     CNAME("www", "acomputer.lol."),
     END);
 
-D("ironyofprivacy.org", REG_DYNADOT, DnsProvider(DNSP_HETZNER),
+D("ironyofprivacy.org", DOMAIN_REGISTRAR, DNS_PROVIDER,
     DefaultTTL("900s"),
     END);
 
