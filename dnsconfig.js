@@ -2,10 +2,12 @@ var DOMAIN_REGISTRAR = NewRegistrar("dynadot");
 var DNS_PROVIDER_PRIMARY = NewDnsProvider("hetzner");
 var DNS_PROVIDER_SECONDARY = NewDnsProvider("digitalocean");
 
+var PROXY_IP = "128.199.30.141";
+
 D("adtya.xyz", DOMAIN_REGISTRAR, DnsProvider(DNS_PROVIDER_PRIMARY), DnsProvider(DNS_PROVIDER_SECONDARY, 0),
     NAMESERVER_TTL("1d"),
     DefaultTTL("900s"),
-    A("@", "165.232.180.97"),
+    A("@", PROXY_IP),
     CNAME("if3", "if3.fly.dev."),
     CNAME("proofs", "adtya.xyz."),
     CNAME("wiki", "adtya.xyz."),
@@ -16,7 +18,7 @@ D("adtya.xyz", DOMAIN_REGISTRAR, DnsProvider(DNS_PROVIDER_PRIMARY), DnsProvider(
 D("acomputer.lol", DOMAIN_REGISTRAR, DnsProvider(DNS_PROVIDER_PRIMARY), DnsProvider(DNS_PROVIDER_SECONDARY, 0),
     NAMESERVER_TTL("1d"),
     DefaultTTL("900s"),
-    A("@", "165.232.180.97"),
+    A("@", PROXY_IP),
     CNAME("forge", "acomputer.lol."),
     CNAME("matrix", "acomputer.lol."),
     CNAME("ntfy", "acomputer.lol."),
