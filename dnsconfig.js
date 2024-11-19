@@ -1,10 +1,12 @@
 var DOMAIN_REGISTRAR = NewRegistrar("dynadot");
-var DNS_PROVIDER_PRIMARY = NewDnsProvider("hetzner");
-var DNS_PROVIDER_SECONDARY = NewDnsProvider("digitalocean");
 
 var PROXY_IP = "128.199.30.141";
+var DNS_PROVIDER_HETZNER = NewDnsProvider("hetzner");
+var DNS_PROVIDER_DIGITALOCEAN = NewDnsProvider("digitalocean");
 
-D("adtya.xyz", DOMAIN_REGISTRAR, DnsProvider(DNS_PROVIDER_PRIMARY), DnsProvider(DNS_PROVIDER_SECONDARY, 0),
+var DNS_PROVIDER_ONE = DnsProvider(DNS_PROVIDER_HETZNER);
+var DNS_PROVIDER_TWO = DnsProvider(DNS_PROVIDER_DIGITALOCEAN, 0);
+D("adtya.xyz", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
     NAMESERVER_TTL("1d"),
     DefaultTTL("900s"),
     A("@", PROXY_IP),
@@ -15,7 +17,7 @@ D("adtya.xyz", DOMAIN_REGISTRAR, DnsProvider(DNS_PROVIDER_PRIMARY), DnsProvider(
     TXT("_github-pages-challenge-adtya", "c83b7cfc33c02c0499d401da51b801"),
     END);
 
-D("acomputer.lol", DOMAIN_REGISTRAR, DnsProvider(DNS_PROVIDER_PRIMARY), DnsProvider(DNS_PROVIDER_SECONDARY, 0),
+D("acomputer.lol", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
     NAMESERVER_TTL("1d"),
     DefaultTTL("900s"),
     A("@", PROXY_IP),
@@ -26,7 +28,7 @@ D("acomputer.lol", DOMAIN_REGISTRAR, DnsProvider(DNS_PROVIDER_PRIMARY), DnsProvi
     CNAME("www", "acomputer.lol."),
     END);
 
-D("ironyofprivacy.org", DOMAIN_REGISTRAR, DnsProvider(DNS_PROVIDER_PRIMARY), DnsProvider(DNS_PROVIDER_SECONDARY, 0),
+D("ironyofprivacy.org", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
     NAMESERVER_TTL("1d"),
     DefaultTTL("900s"),
     END);
