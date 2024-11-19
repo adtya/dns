@@ -1,31 +1,32 @@
 var DOMAIN_REGISTRAR = NewRegistrar("dynadot");
 
-var PROXY_IP = "128.199.30.141";
 var DNS_PROVIDER_HETZNER = NewDnsProvider("hetzner");
 var DNS_PROVIDER_DIGITALOCEAN = NewDnsProvider("digitalocean");
 
 var DNS_PROVIDER_ONE = DnsProvider(DNS_PROVIDER_HETZNER);
 var DNS_PROVIDER_TWO = DnsProvider(DNS_PROVIDER_DIGITALOCEAN, 0);
+
+var BIFROST_IP = "128.199.30.141";
+
 D("adtya.xyz", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
     NAMESERVER_TTL("1d"),
     DefaultTTL("900s"),
-    A("@", PROXY_IP),
+    A("@", BIFROST_IP),
+    A("www", BIFROST_IP),
+    A("proofs", BIFROST_IP),
+    A("wiki", BIFROST_IP),
     CNAME("if3", "if3.fly.dev."),
-    CNAME("proofs", "adtya.xyz."),
-    CNAME("wiki", "adtya.xyz."),
-    CNAME("www", "adtya.xyz."),
     TXT("_github-pages-challenge-adtya", "c83b7cfc33c02c0499d401da51b801"),
     END);
 
 D("acomputer.lol", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
     NAMESERVER_TTL("1d"),
     DefaultTTL("900s"),
-    A("@", PROXY_IP),
-    CNAME("forge", "acomputer.lol."),
-    CNAME("matrix", "acomputer.lol."),
-    CNAME("ntfy", "acomputer.lol."),
-    CNAME("proxy", "acomputer.lol."),
-    CNAME("www", "acomputer.lol."),
+    A("@", BIFROST_IP),
+    A("www", BIFROST_IP),
+    A("forge", BIFROST_IP),
+    A("matrix", BIFROST_IP),
+    A("ntfy", BIFROST_IP),
     END);
 
 D("ironyofprivacy.org", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
