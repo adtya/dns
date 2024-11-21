@@ -24,7 +24,6 @@ D("acomputer.lol", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
     DefaultTTL("900s"),
     A("@", BIFROST_IP),
     A("www", BIFROST_IP),
-    A("forge", BIFROST_IP),
     A("matrix", BIFROST_IP),
     A("ntfy", BIFROST_IP),
     END);
