@@ -24,6 +24,7 @@ D("acomputer.lol", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
     DefaultTTL("900s"),
     A("@", BIFROST_IP),
     A("www", BIFROST_IP),
+    A("git", BIFROST_IP),
     A("matrix", BIFROST_IP),
     A("ntfy", BIFROST_IP),
     END);
@@ -31,8 +32,7 @@ D("acomputer.lol", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
 D("ironyofprivacy.org", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
     NAMESERVER_TTL("1d"),
     DefaultTTL("900s"),
-    A("git", BIFROST_IP),
-    A("matrix", BIFROST_IP),
+    A("@", BIFROST_IP),
     END);
 
 function SETUP_FASTMAIL(domain) {
