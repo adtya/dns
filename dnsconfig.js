@@ -33,6 +33,7 @@ D("ironyofprivacy.org", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
     NAMESERVER_TTL("1d"),
     DefaultTTL("900s"),
     A("@", BIFROST_IP),
+    A("matrix", BIFROST_IP),
     END);
 
 function SETUP_FASTMAIL(domain) {
