@@ -27,6 +27,7 @@ D("acomputer.lol", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
     A("git", BIFROST_IP),
     A("matrix", BIFROST_IP),
     A("ntfy", BIFROST_IP),
+    A("vault", BIFROST_IP),
     END);
 
 D("ironyofprivacy.org", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
