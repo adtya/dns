@@ -6,15 +6,9 @@ var DNS_PROVIDER_DIGITALOCEAN = NewDnsProvider("digitalocean");
 var DNS_PROVIDER_ONE = DnsProvider(DNS_PROVIDER_HETZNER);
 var DNS_PROVIDER_TWO = DnsProvider(DNS_PROVIDER_DIGITALOCEAN, 0);
 
-var BIFROST_IP = "128.199.30.141";
-
 D("adtya.xyz", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
     NAMESERVER_TTL("1d"),
     DefaultTTL("900s"),
-    A("@", BIFROST_IP),
-    A("www", BIFROST_IP),
-    A("proofs", BIFROST_IP),
-    A("wiki", BIFROST_IP),
     CNAME("if3", "if3.fly.dev."),
     TXT("_github-pages-challenge-adtya", "c83b7cfc33c02c0499d401da51b801"),
     END);
@@ -22,19 +16,11 @@ D("adtya.xyz", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
 D("acomputer.lol", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
     NAMESERVER_TTL("1d"),
     DefaultTTL("900s"),
-    A("@", BIFROST_IP),
-    A("www", BIFROST_IP),
-    A("git", BIFROST_IP),
-    A("matrix", BIFROST_IP),
-    A("ntfy", BIFROST_IP),
-    A("vault", BIFROST_IP),
     END);
 
 D("ironyofprivacy.org", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
     NAMESERVER_TTL("1d"),
     DefaultTTL("900s"),
-    A("@", BIFROST_IP),
-    A("matrix", BIFROST_IP),
     END);
 
 function SETUP_FASTMAIL(domain) {
