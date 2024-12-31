@@ -11,6 +11,7 @@ D("adtya.xyz", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
     DefaultTTL("900s"),
     CNAME("if3", "if3.fly.dev."),
     TXT("_github-pages-challenge-adtya", "c83b7cfc33c02c0499d401da51b801"),
+    TXT("_atproto", "did=did:plc:pmam77gw5inkpjfztx3xw54k"),
     END);
 
 D("acomputer.lol", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
