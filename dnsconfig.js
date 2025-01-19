@@ -26,7 +26,7 @@ D("ironyofprivacy.org", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
 
 function SETUP_FASTMAIL(domain) {
     D_EXTEND(domain,
-        DefaultTTL("1d"),
+        DefaultTTL("1h"),
         MX("@", 10, "in1-smtp.messagingengine.com."),
         MX("@", 20, "in2-smtp.messagingengine.com."),
         CNAME("mesmtp._domainkey", "mesmtp." + domain + ".dkim.fmhosted.com."),
@@ -46,7 +46,7 @@ function SETUP_FASTMAIL(domain) {
         SRV("_caldav._tcp", 0, 0, 0, "."),
         SRV("_caldavs._tcp", 0, 1, 443, "caldav.fastmail.com."),
         TXT("@", "v=spf1 include:spf.messagingengine.com ?all"),
-        TXT("_dmarc", "v=DMARC1; p=none;"),
+        TXT("_dmarc", "v=DMARC1; p=reject; rua=mailto:dmarc_reports@" + domain + "; ruf=mailto:dmarc_reports@" + domain + ";"),
         END);
 }
 
