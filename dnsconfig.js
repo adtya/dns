@@ -21,6 +21,7 @@ D("acomputer.lol", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
 D("ironyofprivacy.org", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
     NAMESERVER_TTL("1d"),
     DefaultTTL("900s"),
+    TXT("_atproto", "did=did:plc:4qhsxvly7gyyu42pow7mqkye"),
     END);
 
 function SETUP_FASTMAIL(domain) {
