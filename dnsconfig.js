@@ -13,11 +13,6 @@ D("adtya.xyz", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
     TXT("_github-pages-challenge-adtya", "c83b7cfc33c02c0499d401da51b801"),
     END);
 
-D("acomputer.lol", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
-    NAMESERVER_TTL("1d"),
-    DefaultTTL("900s"),
-    END);
-
 D("ironyofprivacy.org", DOMAIN_REGISTRAR, DNS_PROVIDER_ONE, DNS_PROVIDER_TWO,
     NAMESERVER_TTL("1d"),
     DefaultTTL("900s"),
@@ -51,5 +46,5 @@ function SETUP_FASTMAIL(domain) {
 }
 
 SETUP_FASTMAIL("adtya.xyz")
-SETUP_FASTMAIL("acomputer.lol")
 SETUP_FASTMAIL("ironyofprivacy.org")
+
