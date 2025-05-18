@@ -3,25 +3,35 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs =
-    { nixpkgs ,flake-utils, ... }: flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = import nixpkgs {
+    inputs:
+    let
+      inherit (inputs.nixpkgs) lib;
+      forAllSystems = lib.genAttrs [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
+      pkgsFor =
+        system:
+        import inputs.nixpkgs {
           inherit system;
         };
-      in
-      {
-        formatter = pkgs.nixpkgs-fmt;
-        devShells.default = pkgs.mkShell {
-          packages = with pkgs; [
-            dnscontrol
-            tailwindcss-language-server
-          ];
-        };
-      }
-    );
+    in
+    {
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = pkgsFor system;
+        in
+        {
+          default = pkgs.mkShell {
+            packages = [ pkgs.dnscontrol ];
+          };
+        }
+      );
+    };
 }
